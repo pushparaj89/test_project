@@ -1,0 +1,30 @@
+soccer_team:
+    path:     /
+    defaults: { _controller: "SoccerBundle:Team:index" }
+
+soccer_team_show:
+    path:     /{id}/show
+    defaults: { _controller: "SoccerBundle:Team:show" }
+
+soccer_team_new:
+    path:     /new
+    defaults: { _controller: "SoccerBundle:Team:new" }
+
+soccer_team_create:
+    path:     /create
+    defaults: { _controller: "SoccerBundle:Team:create" }
+    requirements: { _method: post }
+
+soccer_team_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SoccerBundle:Team:edit" }
+
+soccer_team_update:
+    path:     /{id}/update
+    defaults: { _controller: "SoccerBundle:Team:update" }
+    requirements: { _method: post|put }
+
+soccer_team_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SoccerBundle:Team:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,4 @@
+services:
+#    soccer.example:
+#        class: SoccerBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

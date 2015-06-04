@@ -1,0 +1,18 @@
+SoccerBundle\Entity\Team:
+    type: entity
+    table: team
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+        logo_uri:
+            type: string
+            length: 255		
+    oneToMany:
+        players:
+            targetEntity: Player
+            mappedBy: team

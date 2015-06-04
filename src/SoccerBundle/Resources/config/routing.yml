@@ -1,0 +1,11 @@
+soccer_soccer_player:
+    resource: "@SoccerBundle/Resources/config/routing/player.yml"
+    prefix:   /soccer_player
+
+soccer_soccer_team:
+    resource: "@SoccerBundle/Resources/config/routing/team.yml"
+    prefix:   /soccer_team
+
+soccer_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SoccerBundle:Default:index }

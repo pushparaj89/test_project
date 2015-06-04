@@ -1,0 +1,25 @@
+SoccerBundle\Entity\Player:
+    type: entity
+    table: player
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        first_name:
+            type: string
+            length: 255
+        last_name:
+            type: string
+            length: 255
+        image_uri:
+            type: string
+            length: 255
+            nullable: true
+    manyToOne:
+        team:
+            targetEntity: Team
+            inversedBy: players
+            joinColumn:
+                name: team_id
+                referencedColumnName: id
