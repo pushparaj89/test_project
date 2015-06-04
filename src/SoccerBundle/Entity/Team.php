@@ -130,4 +130,56 @@ public function __toString()
     {
         return $this->players;
     }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->logo_uri
+            ? null
+            : $this->getUploadRootDir().'/'.$this->logo_uri;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->logo_uri
+            ? null
+            : $this->getUploadDir().'/'.$this->logo_uri;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded
+        // documents should be saved
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        // get rid of the __DIR__ so it doesn't screw up
+        // when displaying uploaded doc/image in the view.
+        return 'uploads/';
+    }
+    public function upload()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getLogoUri()) {
+            return;
+        }
+
+        // use the original file name here but you should
+        // sanitize it at least to avoid any security issues
+
+        // move takes the target directory and then the
+        // target filename to move to
+//       echo $this->getUploadRootDir();exit;
+        $this->getLogoUri()->move(
+            $this->getUploadRootDir(),
+            $this->getLogoUri()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->logo_uri = $this->getLogoUri()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+//        $this->file = null;
+    }
 }

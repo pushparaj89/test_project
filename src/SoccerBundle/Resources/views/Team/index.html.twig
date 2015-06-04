@@ -17,7 +17,7 @@
             <tr>
                 <td><a href="{{ path('soccer_team_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td><a href="{{ path('soccer_team_player_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-                <td>{{ entity.logouri }}</td>
+                <td><img src="{{ asset('uploads/'~entity.logouri) }}" height="150px" alt="img" /></td>
                 <td>
                 <ul>
                     <li>

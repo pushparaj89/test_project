@@ -40,10 +40,11 @@ class TeamController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-$file = $form['logo_uri']->getData();
-$name = 'test_img';
-$dir = __DIR__.'/../../../../web/uploads';
-$file->move($dir,$name) ;
+            $entity->upload();
+//$file = $form['logo_uri']->getData();
+//$name = 'test_img';
+//$dir = __DIR__.'/../../../../web/uploads';
+//$file->move($dir,$name) ;
             $em->persist($entity);
             $em->flush();
 

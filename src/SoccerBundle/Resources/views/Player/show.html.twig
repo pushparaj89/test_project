@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <th>Image_uri</th>
-                <td>{{ entity.imageuri }}</td>
+                <td><img src="{{ asset('uploads/'~entity.imageuri) }}" height="150px" alt="img" /></td>
             </tr>
         </tbody>
     </table>

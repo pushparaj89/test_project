@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <th>Logo_uri</th>
-                <td>{{ entity.logouri }}</td>
+                <td><img src="{{ asset('uploads/'~entity.logouri) }}" height="150px" alt="img" /></td>
             </tr>
         </tbody>
     </table>
@@ -36,8 +36,7 @@
                 <td><a href="{{ path('soccer_player_show', { 'id': entity.id }) }}">{{ player .id }}</a></td>
                 <td>{{ player .firstname }}</td>
                 <td>{{ player .lastname }}</td>
-                <td><img src="{{ asset(player .imageuri) }}" alt="player"/></td>
-                <td>
+                <td><img src="{{ asset('uploads/'~player.imageuri) }}" height="150px" alt="img" />
                 
                 </td>
             </tr>
@@ -53,6 +52,6 @@
             Back to the list
         </a>
     </li>
-    <li>
+
 </ul>
 {% endblock %}
