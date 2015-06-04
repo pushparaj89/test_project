@@ -16,7 +16,9 @@ class TeamType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('logo_uri')
+            ->add('logo_uri','file', array(
+                'data_class' => null
+            ))
         ;
     }
     

@@ -2,6 +2,7 @@ soccer_team:
     path:     /
     defaults: { _controller: "SoccerBundle:Team:index" }
 
+
 soccer_team_show:
     path:     /{id}/show
     defaults: { _controller: "SoccerBundle:Team:show" }
@@ -28,3 +29,7 @@ soccer_team_delete:
     path:     /{id}/delete
     defaults: { _controller: "SoccerBundle:Team:delete" }
     requirements: { _method: post|delete }
+
+soccer_team_player_show:
+    path:     /{id}/teamplayer
+    defaults: { _controller: "SoccerBundle:Team:teamPlayer" }

@@ -106,7 +106,12 @@ class Team
         return $this;
     }
 
-    /**
+    
+public function __toString()
+{
+    return $this->getName() ? $this->getName() : "";
+}
+/**
      * Remove players
      *
      * @param \SoccerBundle\Entity\Player $players

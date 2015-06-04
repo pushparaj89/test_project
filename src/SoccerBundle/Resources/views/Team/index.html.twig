@@ -16,7 +16,7 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('soccer_team_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
+                <td><a href="{{ path('soccer_team_player_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
                 <td>{{ entity.logouri }}</td>
                 <td>
                 <ul>

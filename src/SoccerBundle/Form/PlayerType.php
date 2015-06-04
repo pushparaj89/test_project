@@ -17,7 +17,9 @@ class PlayerType extends AbstractType
         $builder
             ->add('first_name')
             ->add('last_name')
-            ->add('image_uri')
+            ->add('image_uri','file', array(
+                'data_class' => null
+            ))
             ->add('team')
         ;
     }

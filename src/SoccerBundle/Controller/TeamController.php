@@ -4,10 +4,9 @@ namespace SoccerBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use SoccerBundle\Entity\Team;
 use SoccerBundle\Form\TeamType;
-
+use Symfony\Component\HttpFoundation\File\File;
 /**
  * Team controller.
  *
@@ -41,6 +40,10 @@ class TeamController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+$file = $form['logo_uri']->getData();
+$name = 'test_img';
+$dir = __DIR__.'/../../../../web/uploads';
+$file->move($dir,$name) ;
             $em->persist($entity);
             $em->flush();
 
@@ -108,6 +111,28 @@ class TeamController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
+//
+ public function teamPlayerAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('SoccerBundle:Team')->find($id);
+$players = $em->getRepository('SoccerBundle:Player')->findByTeam($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Team entity.');
+        }
+
+        $deleteForm = $this->createDeleteForm($id);
+
+        return $this->render('SoccerBundle:Team:teamPlayer.html.twig', array(
+            'entity'      => $entity,
+            'players'      => $players 
+        ));
+    }
+
+//
 
     /**
      * Displays a form to edit an existing Team entity.
